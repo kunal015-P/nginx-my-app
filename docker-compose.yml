@@ -2,21 +2,9 @@ version: '3.8'
 
 services:
 nginx-app:
-image: my-nginx-app:latest
 container_name: my-nginx-container
+build: .
 ports:
 - "8000:80"
 restart: always
 
-```
-# Optional but recommended
-build:
-  context: .
-  dockerfile: Dockerfile
-
-# Logging (helps debugging)
-logging:
-  driver: "json-file"
-  options:
-    max-size: "10m"
-    max-file: "3"
